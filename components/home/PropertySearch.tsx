@@ -1,12 +1,12 @@
 "use client";
 
 import { Search } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
-
-const locations = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah"];
-const propertyTypes = ["Apartment", "Villa", "Office", "Land"];
+import { CITIES, PROPERTY_TYPES } from "@/lib/property-filters";
 
 export function PropertySearch() {
+  const router = useRouter();
   const [location, setLocation] = useState("");
   const [type, setType] = useState("");
   const [minPrice, setMinPrice] = useState("");
@@ -14,7 +14,13 @@ export function PropertySearch() {
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    document.getElementById("properties")?.scrollIntoView({ behavior: "smooth" });
+    const params = new URLSearchParams();
+    if (location) params.set("city", location);
+    if (type) params.set("type", type);
+    if (minPrice) params.set("minPrice", minPrice);
+    if (maxPrice) params.set("maxPrice", maxPrice);
+    const query = params.toString();
+    router.push(query ? `/properties?${query}` : "/properties");
   };
 
   return (
@@ -29,10 +35,10 @@ export function PropertySearch() {
         <select
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          className="h-11 rounded-xl border border-forest-800/10 bg-cream px-3 text-sm text-forest-900 outline-none transition focus:border-gold-500 dark:border-white/10 dark:bg-forest-800 dark:text-cream"
+          className="h-11 rounded-xl border border-forest-800/10 bg-cream px-3 text-sm text-forest-900 outline-none transition duration-300 ease-in-out focus:border-gold-500 dark:border-white/10 dark:bg-forest-800 dark:text-cream"
         >
           <option value="">All cities</option>
-          {locations.map((city) => (
+          {CITIES.map((city) => (
             <option key={city} value={city}>
               {city}
             </option>
@@ -47,10 +53,10 @@ export function PropertySearch() {
         <select
           value={type}
           onChange={(e) => setType(e.target.value)}
-          className="h-11 rounded-xl border border-forest-800/10 bg-cream px-3 text-sm text-forest-900 outline-none transition focus:border-gold-500 dark:border-white/10 dark:bg-forest-800 dark:text-cream"
+          className="h-11 rounded-xl border border-forest-800/10 bg-cream px-3 text-sm text-forest-900 outline-none transition duration-300 ease-in-out focus:border-gold-500 dark:border-white/10 dark:bg-forest-800 dark:text-cream"
         >
           <option value="">Any type</option>
-          {propertyTypes.map((item) => (
+          {PROPERTY_TYPES.map((item) => (
             <option key={item} value={item}>
               {item}
             </option>
@@ -69,7 +75,7 @@ export function PropertySearch() {
             placeholder="500,000"
             value={minPrice}
             onChange={(e) => setMinPrice(e.target.value)}
-            className="h-11 rounded-xl border border-forest-800/10 bg-cream px-3 text-sm text-forest-900 outline-none transition focus:border-gold-500 dark:border-white/10 dark:bg-forest-800 dark:text-cream"
+            className="h-11 rounded-xl border border-forest-800/10 bg-cream px-3 text-sm text-forest-900 outline-none transition duration-300 ease-in-out focus:border-gold-500 dark:border-white/10 dark:bg-forest-800 dark:text-cream"
           />
         </label>
         <label className="flex flex-col gap-1.5 text-left">
@@ -82,7 +88,7 @@ export function PropertySearch() {
             placeholder="10,000,000"
             value={maxPrice}
             onChange={(e) => setMaxPrice(e.target.value)}
-            className="h-11 rounded-xl border border-forest-800/10 bg-cream px-3 text-sm text-forest-900 outline-none transition focus:border-gold-500 dark:border-white/10 dark:bg-forest-800 dark:text-cream"
+            className="h-11 rounded-xl border border-forest-800/10 bg-cream px-3 text-sm text-forest-900 outline-none transition duration-300 ease-in-out focus:border-gold-500 dark:border-white/10 dark:bg-forest-800 dark:text-cream"
           />
         </label>
       </div>

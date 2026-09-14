@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { FadeIn } from "@/components/motion/FadeIn";
 
 const stats = [
   { label: "Properties Listed", value: 2400, suffix: "+" },
@@ -8,6 +9,12 @@ const stats = [
   { label: "Cities Covered", value: 12, suffix: "" },
   { label: "Years of Experience", value: 15, suffix: "+" },
 ];
+
+function easeInOut(progress: number) {
+  return progress < 0.5
+    ? 2 * progress * progress
+    : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+}
 
 function useCountUp(target: number, start: boolean) {
   const [count, setCount] = useState(0);
@@ -20,7 +27,7 @@ function useCountUp(target: number, start: boolean) {
 
     const tick = (now: number) => {
       const progress = Math.min((now - startTime) / duration, 1);
-      setCount(Math.round(target * progress));
+      setCount(Math.round(target * easeInOut(progress)));
       if (progress < 1) requestAnimationFrame(tick);
     };
 
@@ -85,11 +92,11 @@ export function Stats() {
       className="relative overflow-hidden bg-forest-800 py-16"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(201,154,72,0.18),transparent_45%)]" />
-      <div className="container-page relative grid grid-cols-2 gap-8 lg:grid-cols-4">
+      <FadeIn className="container-page relative grid grid-cols-2 gap-8 lg:grid-cols-4">
         {stats.map((stat) => (
           <StatItem key={stat.label} {...stat} start={start} />
         ))}
-      </div>
+      </FadeIn>
     </section>
   );
 }

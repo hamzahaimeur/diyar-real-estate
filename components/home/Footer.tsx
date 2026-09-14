@@ -37,22 +37,22 @@ export function Footer() {
           </h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <Link href="/" className="hover:text-gold-300">
+              <Link href="/" className="transition duration-300 ease-in-out hover:text-gold-300">
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/#properties" className="hover:text-gold-300">
+              <Link href="/properties" className="transition duration-300 ease-in-out hover:text-gold-300">
                 Properties
               </Link>
             </li>
             <li>
-              <Link href="/#about" className="hover:text-gold-300">
+              <Link href="/#about" className="transition duration-300 ease-in-out hover:text-gold-300">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/#contact" className="hover:text-gold-300">
+              <Link href="/#contact" className="transition duration-300 ease-in-out hover:text-gold-300">
                 Contact
               </Link>
             </li>
@@ -81,21 +81,21 @@ export function Footer() {
             <a
               href="https://instagram.com"
               aria-label="Instagram"
-              className="rounded-full border border-white/10 p-2 hover:border-gold-400 hover:text-gold-300"
+              className="rounded-full border border-white/10 p-2 transition duration-300 ease-in-out hover:scale-105 hover:border-gold-400 hover:text-gold-300"
             >
               <Instagram size={16} />
             </a>
             <a
               href="https://facebook.com"
               aria-label="Facebook"
-              className="rounded-full border border-white/10 p-2 hover:border-gold-400 hover:text-gold-300"
+              className="rounded-full border border-white/10 p-2 transition duration-300 ease-in-out hover:scale-105 hover:border-gold-400 hover:text-gold-300"
             >
               <Facebook size={16} />
             </a>
             <a
               href="https://linkedin.com"
               aria-label="LinkedIn"
-              className="rounded-full border border-white/10 p-2 hover:border-gold-400 hover:text-gold-300"
+              className="rounded-full border border-white/10 p-2 transition duration-300 ease-in-out hover:scale-105 hover:border-gold-400 hover:text-gold-300"
             >
               <Linkedin size={16} />
             </a>

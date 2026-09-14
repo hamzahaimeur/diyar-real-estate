@@ -11,7 +11,8 @@
     "bathrooms": 5,
     "area": 320,
     "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80",
-    "featured": true
+    "featured": true,
+    "amenities": ["Pool", "Gym", "Parking", "Sea View", "Concierge", "Smart Home"]
   },
   {
     "id": "diyar-002",
@@ -25,7 +26,8 @@
     "bathrooms": 6,
     "area": 540,
     "image": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1600&q=80",
-    "featured": true
+    "featured": true,
+    "amenities": ["Pool", "Garden", "Parking", "Maid Room", "Smart Home"]
   },
   {
     "id": "diyar-003",
@@ -39,7 +41,8 @@
     "bathrooms": 2,
     "area": 185,
     "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80",
-    "featured": true
+    "featured": true,
+    "amenities": ["Parking", "Gym", "Concierge", "Sea View"]
   },
   {
     "id": "diyar-004",
@@ -53,7 +56,8 @@
     "bathrooms": 3,
     "area": 168,
     "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=80",
-    "featured": true
+    "featured": true,
+    "amenities": ["Gym", "Parking", "Sea View", "Concierge"]
   },
   {
     "id": "diyar-005",
@@ -67,7 +71,8 @@
     "bathrooms": 7,
     "area": 710,
     "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
-    "featured": true
+    "featured": true,
+    "amenities": ["Pool", "Garden", "Parking", "Sea View", "Maid Room", "Smart Home"]
   },
   {
     "id": "diyar-006",
@@ -81,6 +86,97 @@
     "bathrooms": 0,
     "area": 1200,
     "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80",
-    "featured": true
+    "featured": true,
+    "amenities": ["Parking"]
+  },
+  {
+    "id": "diyar-007",
+    "title": "Al Majaz Canal Apartment",
+    "location": "Al Majaz, Sharjah",
+    "city": "Sharjah",
+    "price": 980000,
+    "currency": "AED",
+    "type": "Apartment",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area": 112,
+    "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80",
+    "featured": false,
+    "amenities": ["Gym", "Parking", "Pool"]
+  },
+  {
+    "id": "diyar-008",
+    "title": "Al Marjan Island Villa",
+    "location": "Al Marjan Island, Ras Al Khaimah",
+    "city": "Ras Al Khaimah",
+    "price": 3650000,
+    "currency": "AED",
+    "type": "Villa",
+    "bedrooms": 4,
+    "bathrooms": 4,
+    "area": 390,
+    "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80",
+    "featured": false,
+    "amenities": ["Pool", "Garden", "Parking", "Sea View", "Maid Room"]
+  },
+  {
+    "id": "diyar-009",
+    "title": "Business Bay Studio Loft",
+    "location": "Business Bay, Dubai",
+    "city": "Dubai",
+    "price": 890000,
+    "currency": "AED",
+    "type": "Apartment",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "area": 58,
+    "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1600&q=80",
+    "featured": false,
+    "amenities": ["Gym", "Parking", "Concierge", "Smart Home"]
+  },
+  {
+    "id": "diyar-010",
+    "title": "Yas Business Hub Office",
+    "location": "Yas Island, Abu Dhabi",
+    "city": "Abu Dhabi",
+    "price": 1750000,
+    "currency": "AED",
+    "type": "Office",
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "area": 142,
+    "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=80",
+    "featured": false,
+    "amenities": ["Parking", "Gym", "Concierge"]
+  },
+  {
+    "id": "diyar-011",
+    "title": "Downtown Boulevard Residence",
+    "location": "Downtown Dubai, Dubai",
+    "city": "Dubai",
+    "price": 3100000,
+    "currency": "AED",
+    "type": "Apartment",
+    "bedrooms": 2,
+    "bathrooms": 3,
+    "area": 148,
+    "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80",
+    "featured": false,
+    "amenities": ["Pool", "Gym", "Parking", "Concierge", "Smart Home"]
+  },
+  {
+    "id": "diyar-012",
+    "title": "Muwaileh Commercial Plot",
+    "location": "Muwaileh, Sharjah",
+    "city": "Sharjah",
+    "price": 2100000,
+    "currency": "AED",
+    "type": "Land",
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "area": 950,
+    "image": "https://images.unsplash.com/photo-1464146072230-91cabc968266?auto=format&fit=crop&w=1600&q=80",
+    "featured": false,
+    "amenities": ["Parking"]
   }
 ]

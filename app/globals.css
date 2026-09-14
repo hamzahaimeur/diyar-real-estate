@@ -4,18 +4,61 @@
 
 :root {
   color-scheme: light;
+  --scrollbar-track: #e1ebe3;
+  --scrollbar-thumb: #b8862f;
 }
 
 .dark {
   color-scheme: dark;
+  --scrollbar-track: #163028;
+  --scrollbar-thumb: #d9b66f;
 }
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 999px;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: #c99a48;
 }
 
 body {
   @apply bg-cream text-forest-900 antialiased dark:bg-forest-950 dark:text-cream;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @layer components {
@@ -32,10 +75,26 @@ body {
   }
 
   .gold-btn {
-    @apply inline-flex items-center justify-center rounded-full bg-gold-500 px-5 py-2.5 text-sm font-semibold text-forest-950 shadow-sm transition duration-300 hover:bg-gold-400 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500;
+    @apply inline-flex items-center justify-center rounded-full bg-gold-500 px-5 py-2.5 text-sm font-semibold text-forest-950 shadow-sm transition duration-300 ease-in-out hover:scale-[1.03] hover:bg-gold-400 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 active:scale-[0.98];
   }
 
   .ghost-btn {
-    @apply inline-flex items-center justify-center rounded-full border border-forest-700/15 bg-white/70 px-5 py-2.5 text-sm font-semibold text-forest-800 backdrop-blur transition duration-300 hover:border-gold-500/60 hover:text-gold-700 dark:border-white/10 dark:bg-white/5 dark:text-cream dark:hover:border-gold-400/60 dark:hover:text-gold-300;
+    @apply inline-flex items-center justify-center rounded-full border border-forest-700/15 bg-white/70 px-5 py-2.5 text-sm font-semibold text-forest-800 backdrop-blur transition duration-300 ease-in-out hover:scale-[1.03] hover:border-gold-500/60 hover:text-gold-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 active:scale-[0.98] dark:border-white/10 dark:bg-white/5 dark:text-cream dark:hover:border-gold-400/60 dark:hover:text-gold-300;
+  }
+
+  .nav-link {
+    @apply relative text-sm font-medium text-forest-700 transition-colors duration-300 ease-in-out after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold-500 after:transition-all after:duration-300 after:ease-in-out hover:text-gold-600 hover:after:w-full dark:text-forest-100 dark:after:bg-gold-300 dark:hover:text-gold-300;
+  }
+
+  .fade-in-up {
+    @apply translate-y-7 opacity-0 transition-[opacity,transform] duration-[350ms] ease-in-out;
+  }
+
+  .fade-in-up.is-visible {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .icon-btn {
+    @apply inline-flex items-center justify-center rounded-full border border-forest-800/10 p-2 text-forest-800 transition duration-300 ease-in-out hover:scale-105 hover:border-gold-500/50 hover:text-gold-600 dark:border-white/10 dark:text-cream dark:hover:text-gold-300;
   }
 }

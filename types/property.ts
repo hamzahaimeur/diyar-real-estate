@@ -13,4 +13,5 @@ export interface Property {
   area: number;
   image: string;
   featured: boolean;
+  amenities: string[];
 }
