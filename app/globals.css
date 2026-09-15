@@ -16,31 +16,53 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+* {
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
-html::-webkit-scrollbar-track,
-body::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   background: var(--scrollbar-track);
   border-radius: 999px;
 }
 
-html::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background: var(--scrollbar-thumb);
   border-radius: 999px;
 }
 
-html::-webkit-scrollbar-thumb:hover,
-body::-webkit-scrollbar-thumb:hover {
+*::-webkit-scrollbar-thumb:hover {
   background: #c99a48;
+}
+
+input[type="range"] {
+  accent-color: #b8862f;
+}
+
+::selection {
+  background: #b8862f;
+  color: #081411;
+}
+
+.dark ::selection {
+  background: #d9b66f;
+  color: #081411;
+}
+
+:focus-visible {
+  outline: 2px solid #b8862f;
+  outline-offset: 2px;
+}
+
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-gold-500 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-forest-950;
 }
 
 body {
@@ -86,6 +108,10 @@ body {
     @apply relative text-sm font-medium text-forest-700 transition-colors duration-300 ease-in-out after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-gold-500 after:transition-all after:duration-300 after:ease-in-out hover:text-gold-600 hover:after:w-full dark:text-forest-100 dark:after:bg-gold-300 dark:hover:text-gold-300;
   }
 
+  .nav-link.is-active {
+    @apply text-gold-600 after:w-full dark:text-gold-300;
+  }
+
   .fade-in-up {
     @apply translate-y-7 opacity-0 transition-[opacity,transform] duration-[350ms] ease-in-out;
   }
@@ -95,6 +121,6 @@ body {
   }
 
   .icon-btn {
-    @apply inline-flex items-center justify-center rounded-full border border-forest-800/10 p-2 text-forest-800 transition duration-300 ease-in-out hover:scale-105 hover:border-gold-500/50 hover:text-gold-600 dark:border-white/10 dark:text-cream dark:hover:text-gold-300;
+    @apply inline-flex items-center justify-center rounded-full border border-forest-800/10 p-2 text-forest-800 transition duration-300 ease-in-out hover:scale-105 hover:border-gold-500/50 hover:text-gold-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 dark:border-white/10 dark:text-cream dark:hover:text-gold-300;
   }
 }

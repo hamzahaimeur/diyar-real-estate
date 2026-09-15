@@ -1,16 +1,17 @@
 "use client";
 
 import { SlidersHorizontal, X } from "lucide-react";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FilterSidebar } from "@/components/properties/FilterSidebar";
 import { Pagination } from "@/components/properties/Pagination";
 import { PropertyGrid } from "@/components/properties/PropertyGrid";
 import { SortDropdown } from "@/components/properties/SortDropdown";
 import { ViewToggle } from "@/components/properties/ViewToggle";
 import { FadeIn } from "@/components/motion/FadeIn";
-import propertiesData from "@/data/properties.json";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { PropertyGridSkeleton } from "@/components/ui/PropertyCardSkeleton";
+import { getAllProperties } from "@/lib/properties";
 import {
   DEFAULT_FILTERS,
   filterProperties,
@@ -21,10 +22,9 @@ import {
   type SortOption,
   type ViewMode,
 } from "@/lib/property-filters";
-import type { Property } from "@/types/property";
 
 const PAGE_SIZE = 6;
-const allProperties = propertiesData as Property[];
+const allProperties = getAllProperties();
 
 export function PropertiesListing() {
   const searchParams = useSearchParams();
@@ -35,6 +35,9 @@ export function PropertiesListing() {
   const [view, setView] = useState<ViewMode>("grid");
   const [page, setPage] = useState(1);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const listingRef = useRef<HTMLDivElement | null>(null);
+  const skipScrollRef = useRef(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setFilters(filtersFromSearchParams(searchParams));
@@ -42,11 +45,25 @@ export function PropertiesListing() {
   }, [searchParams]);
 
   useEffect(() => {
+    if (skipScrollRef.current) {
+      skipScrollRef.current = false;
+      return;
+    }
+    listingRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [page]);
+
+  useEffect(() => {
     document.body.style.overflow = drawerOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [drawerOpen]);
+
+  useEffect(() => {
+    setLoading(true);
+    const timeout = window.setTimeout(() => setLoading(false), 420);
+    return () => window.clearTimeout(timeout);
+  }, [filters, sort, page, view]);
 
   const filtered = useMemo(
     () => sortProperties(filterProperties(allProperties, filters), sort),
@@ -71,17 +88,7 @@ export function PropertiesListing() {
     <div className="pb-20">
       <section className="border-b border-forest-800/10 bg-white py-10 dark:border-white/10 dark:bg-forest-900/40">
         <FadeIn className="container-page">
-          <nav className="text-sm text-forest-600 dark:text-forest-200" aria-label="Breadcrumb">
-            <ol className="flex items-center gap-2">
-              <li>
-                <Link href="/" className="transition duration-300 ease-in-out hover:text-gold-600">
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden="true">›</li>
-              <li className="font-medium text-forest-900 dark:text-cream">Properties</li>
-            </ol>
-          </nav>
+          <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "Properties" }]} />
           <h1 className="section-heading mt-4">All Properties</h1>
           <p className="section-sub">
             Filter verified homes, offices, and land across the UAE. {filtered.length} listing
@@ -99,7 +106,7 @@ export function PropertiesListing() {
           />
         </div>
 
-        <div>
+        <div ref={listingRef} className="scroll-mt-24">
           <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
             <button
               type="button"
@@ -123,12 +130,18 @@ export function PropertiesListing() {
             </div>
           </div>
 
-          <PropertyGrid properties={visible} layout={view} />
-          <Pagination
-            page={currentPage}
-            totalPages={totalPages}
-            onPageChange={setPage}
-          />
+          {loading ? (
+            <PropertyGridSkeleton layout={view} />
+          ) : (
+            <>
+              <PropertyGrid properties={visible} layout={view} />
+              <Pagination
+                page={currentPage}
+                totalPages={totalPages}
+                onPageChange={setPage}
+              />
+            </>
+          )}
         </div>
       </div>
 

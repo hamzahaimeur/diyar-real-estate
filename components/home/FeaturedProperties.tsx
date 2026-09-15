@@ -1,10 +1,9 @@
 import Link from "next/link";
-import propertiesData from "@/data/properties.json";
 import { PropertyCard } from "@/components/home/PropertyCard";
 import { FadeIn } from "@/components/motion/FadeIn";
-import type { Property } from "@/types/property";
+import { getAllProperties } from "@/lib/properties";
 
-const properties = (propertiesData as Property[]).filter((item) => item.featured);
+const properties = getAllProperties().filter((item) => item.featured);
 
 export function FeaturedProperties() {
   return (

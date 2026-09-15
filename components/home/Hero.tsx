@@ -3,7 +3,7 @@ import { FadeIn } from "@/components/motion/FadeIn";
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden">
+    <section id="home" className="relative isolate scroll-mt-24 overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{

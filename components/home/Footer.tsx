@@ -1,10 +1,14 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, MouseEvent, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { FadeIn } from "@/components/motion/FadeIn";
+import { scrollToHash } from "@/lib/motion";
 
 export function Footer() {
+  const pathname = usePathname();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -15,10 +19,17 @@ export function Footer() {
     setEmail("");
   };
 
+  const onHashClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    const hashIndex = href.indexOf("#");
+    if (hashIndex === -1 || pathname !== "/") return;
+    event.preventDefault();
+    scrollToHash(href.slice(hashIndex));
+  };
+
   return (
     <footer id="contact" className="scroll-mt-24 bg-forest-950 text-forest-100">
       <div className="container-page grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
-        <div>
+        <FadeIn>
           <div className="flex items-center gap-2">
             <span className="flex h-9 w-9 items-center justify-center rounded-md bg-gold-500 text-forest-950">
               <span className="font-display text-lg leading-none">D</span>
@@ -29,9 +40,9 @@ export function Footer() {
             A professional listing platform for people who want clarity, verified
             homes, and a more considered property search.
           </p>
-        </div>
+        </FadeIn>
 
-        <div>
+        <FadeIn delayMs={80}>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-gold-300">
             Quick Links
           </h3>
@@ -47,19 +58,27 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/#about" className="transition duration-300 ease-in-out hover:text-gold-300">
+              <Link
+                href="/#about"
+                className="transition duration-300 ease-in-out hover:text-gold-300"
+                onClick={(event) => onHashClick(event, "/#about")}
+              >
                 About
               </Link>
             </li>
             <li>
-              <Link href="/#contact" className="transition duration-300 ease-in-out hover:text-gold-300">
+              <Link
+                href="/#contact"
+                className="transition duration-300 ease-in-out hover:text-gold-300"
+                onClick={(event) => onHashClick(event, "/#contact")}
+              >
                 Contact
               </Link>
             </li>
           </ul>
-        </div>
+        </FadeIn>
 
-        <div>
+        <FadeIn delayMs={160}>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-gold-300">
             Contact
           </h3>
@@ -100,9 +119,9 @@ export function Footer() {
               <Linkedin size={16} />
             </a>
           </div>
-        </div>
+        </FadeIn>
 
-        <div>
+        <FadeIn delayMs={240}>
           <h3 className="text-sm font-semibold uppercase tracking-wider text-gold-300">
             Newsletter
           </h3>
@@ -116,7 +135,7 @@ export function Footer() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email"
-              className="h-11 rounded-xl border border-white/10 bg-forest-900 px-3 text-sm text-cream outline-none focus:border-gold-400"
+              className="h-11 rounded-xl border border-white/10 bg-forest-900 px-3 text-sm text-cream outline-none transition duration-300 ease-in-out focus:border-gold-400"
             />
             <button type="submit" className="gold-btn">
               Subscribe
@@ -125,7 +144,7 @@ export function Footer() {
               <p className="text-xs text-gold-300">Thank you. You are on the list.</p>
             )}
           </form>
-        </div>
+        </FadeIn>
       </div>
 
       <div className="border-t border-white/10 py-5 text-center text-xs text-forest-300">

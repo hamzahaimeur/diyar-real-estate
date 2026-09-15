@@ -1,5 +1,13 @@
 export type PropertyType = "Apartment" | "Villa" | "Office" | "Land";
 
+export interface Agent {
+  name: string;
+  role: string;
+  phone: string;
+  email: string;
+  photo: string;
+}
+
 export interface Property {
   id: string;
   title: string;
@@ -14,4 +22,10 @@ export interface Property {
   image: string;
   featured: boolean;
   amenities: string[];
+}
+
+export interface PropertyDetail extends Property {
+  description: string;
+  images: string[];
+  agent: Agent;
 }

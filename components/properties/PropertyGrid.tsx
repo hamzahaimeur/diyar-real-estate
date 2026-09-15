@@ -12,14 +12,16 @@ export function PropertyGrid({
 }) {
   if (properties.length === 0) {
     return (
-      <div className="rounded-2xl border border-dashed border-forest-800/15 bg-white px-6 py-16 text-center dark:border-white/10 dark:bg-forest-900">
-        <h3 className="font-display text-2xl text-forest-900 dark:text-cream">
-          No properties match these filters
-        </h3>
-        <p className="mt-2 text-sm text-forest-600 dark:text-forest-200">
-          Try widening the price range or clearing a few amenities.
-        </p>
-      </div>
+      <FadeIn>
+        <div className="rounded-2xl border border-dashed border-forest-800/15 bg-white px-6 py-16 text-center dark:border-white/10 dark:bg-forest-900">
+          <h3 className="font-display text-2xl text-forest-900 dark:text-cream">
+            No properties match these filters
+          </h3>
+          <p className="mt-2 text-sm text-forest-600 dark:text-forest-200">
+            Try widening the price range or clearing a few amenities.
+          </p>
+        </div>
+      </FadeIn>
     );
   }
 
