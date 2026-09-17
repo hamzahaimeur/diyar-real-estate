@@ -4,6 +4,7 @@ import { Bath, BedDouble, MapPin, Maximize2 } from "lucide-react";
 import { formatPrice } from "@/lib/format";
 import type { Property } from "@/types/property";
 import type { ViewMode } from "@/lib/property-filters";
+import { SaveButton } from "@/components/providers/FavoritesProvider";
 
 export function PropertyCard({
   property,
@@ -38,6 +39,7 @@ export function PropertyCard({
               : "(max-width: 768px) 100vw, 33vw"
           }
         />
+        <SaveButton propertyId={property.id} />
         <span className="absolute left-3 top-3 rounded-full bg-forest-900/85 px-3 py-1 text-xs font-semibold text-gold-300">
           {property.type}
         </span>

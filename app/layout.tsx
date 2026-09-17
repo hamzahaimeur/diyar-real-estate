@@ -4,6 +4,7 @@ import { Footer } from "@/components/home/Footer";
 import { Navbar } from "@/components/home/Navbar";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { FavoritesProvider } from "@/components/providers/FavoritesProvider";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -51,6 +52,7 @@ export default function RootLayout({
       </head>
       <body className={`${dmSans.variable} ${playfair.variable} font-sans`}>
         <ThemeProvider>
+          <FavoritesProvider>
           <a href="#main-content" className="skip-link">
             Skip to content
           </a>
@@ -58,6 +60,7 @@ export default function RootLayout({
           <div id="main-content">{children}</div>
           <Footer />
           <BackToTop />
+          </FavoritesProvider>
         </ThemeProvider>
       </body>
     </html>

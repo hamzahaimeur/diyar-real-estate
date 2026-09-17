@@ -12,8 +12,8 @@ type SectionId = "home" | "properties" | "about" | "contact";
 const navLinks: { href: string; label: string; section: SectionId }[] = [
   { href: "/", label: "Home", section: "home" },
   { href: "/properties", label: "Properties", section: "properties" },
-  { href: "/#about", label: "About", section: "about" },
-  { href: "/#contact", label: "Contact", section: "contact" },
+  { href: "/about", label: "About", section: "about" },
+  { href: "/contact", label: "Contact", section: "contact" },
 ];
 
 export function Navbar() {
