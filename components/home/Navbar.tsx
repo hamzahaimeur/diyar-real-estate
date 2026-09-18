@@ -1,10 +1,11 @@
 "use client";
 
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { Heart, Menu, Moon, Sun, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MouseEvent, useEffect, useState } from "react";
 import { useTheme } from "@/components/providers/ThemeProvider";
+import { useFavorites } from "@/components/providers/FavoritesProvider";
 import { scrollToHash } from "@/lib/motion";
 
 type SectionId = "home" | "properties" | "about" | "contact";
@@ -18,6 +19,7 @@ const navLinks: { href: string; label: string; section: SectionId }[] = [
 
 export function Navbar() {
   const { theme, toggleTheme } = useTheme();
+  const { favorites } = useFavorites();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<SectionId>("home");
@@ -131,6 +133,10 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <Link href="/favorites" className="icon-btn relative" aria-label={`Saved properties${favorites.length ? `, ${favorites.length} saved` : ""}`}>
+            <Heart size={18} fill={favorites.length ? "currentColor" : "none"} />
+            {favorites.length > 0 && <span className="absolute -right-1 -top-1 flex size-4 items-center justify-center rounded-full bg-gold-500 text-[10px] font-bold text-forest-950">{favorites.length}</span>}
+          </Link>
           <button
             type="button"
             onClick={toggleTheme}

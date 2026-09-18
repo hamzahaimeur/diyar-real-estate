@@ -1,14 +1,20 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useRef, useState } from "react";
 
 type FavoritesContextValue = { favorites: string[]; toggleFavorite: (id: string) => void; isFavorite: (id: string) => boolean };
 const FavoritesContext = createContext<FavoritesContextValue | null>(null);
 
 export function FavoritesProvider({ children }: { children: React.ReactNode }) {
   const [favorites, setFavorites] = useState<string[]>([]);
-  useEffect(() => { try { setFavorites(JSON.parse(window.localStorage.getItem("diyar-favorites") || "[]")); } catch { setFavorites([]); } }, []);
-  useEffect(() => { window.localStorage.setItem("diyar-favorites", JSON.stringify(favorites)); }, [favorites]);
+  const hydrated = useRef(false);
+  useEffect(() => {
+    try { setFavorites(JSON.parse(window.localStorage.getItem("diyar-favorites") || "[]")); } catch { setFavorites([]); }
+    hydrated.current = true;
+  }, []);
+  useEffect(() => {
+    if (hydrated.current) window.localStorage.setItem("diyar-favorites", JSON.stringify(favorites));
+  }, [favorites]);
   const value = useMemo(() => ({ favorites, toggleFavorite: (id: string) => setFavorites((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]), isFavorite: (id: string) => favorites.includes(id) }), [favorites]);
   return <FavoritesContext.Provider value={value}>{children}</FavoritesContext.Provider>;
 }

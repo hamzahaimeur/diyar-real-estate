@@ -147,8 +147,9 @@ export function Footer() {
         </FadeIn>
       </div>
 
-      <div className="border-t border-white/10 py-5 text-center text-xs text-forest-300">
-        © {new Date().getFullYear()} Diyar. All rights reserved.
+      <div className="flex flex-col items-center justify-between gap-3 border-t border-white/10 py-5 text-center text-xs text-forest-300 sm:flex-row sm:text-left">
+        <span>© {new Date().getFullYear()} Diyar. All rights reserved.</span>
+        <div className="flex gap-4"><Link href="/privacy" className="hover:text-gold-300">Privacy</Link><Link href="/terms" className="hover:text-gold-300">Terms</Link><Link href="/login" className="hover:text-gold-300">Sign in</Link></div>
       </div>
     </footer>
   );

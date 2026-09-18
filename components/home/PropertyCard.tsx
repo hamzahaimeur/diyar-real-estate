@@ -22,28 +22,19 @@ export function PropertyCard({
         isList ? "md:flex" : "flex flex-col"
       }`}
     >
-      <Link
-        href={href}
-        className={`relative overflow-hidden ${
-          isList ? "block h-56 md:h-auto md:w-72 md:shrink-0 lg:w-80" : "block h-56"
-        }`}
-      >
-        <Image
-          src={property.image}
-          alt={property.title}
-          fill
-          className="object-cover transition duration-300 ease-in-out group-hover:scale-105"
-          sizes={
-            isList
-              ? "(max-width: 768px) 100vw, 320px"
-              : "(max-width: 768px) 100vw, 33vw"
-          }
-        />
+      <div className={`relative overflow-hidden ${isList ? "h-56 md:h-auto md:w-72 md:shrink-0 lg:w-80" : "h-56"}`}>
+        <Link href={href} className="block size-full">
+          <Image
+            src={property.image}
+            alt={property.title}
+            fill
+            className="object-cover transition duration-300 ease-in-out group-hover:scale-105"
+            sizes={isList ? "(max-width: 768px) 100vw, 320px" : "(max-width: 768px) 100vw, 33vw"}
+          />
+        </Link>
         <SaveButton propertyId={property.id} />
-        <span className="absolute left-3 top-3 rounded-full bg-forest-900/85 px-3 py-1 text-xs font-semibold text-gold-300">
-          {property.type}
-        </span>
-      </Link>
+        <span className="absolute left-3 top-3 rounded-full bg-forest-900/85 px-3 py-1 text-xs font-semibold text-gold-300">{property.type}</span>
+      </div>
 
       <div className="flex flex-1 flex-col space-y-3 p-5">
         <p className="text-lg font-semibold text-gold-600 dark:text-gold-400">
