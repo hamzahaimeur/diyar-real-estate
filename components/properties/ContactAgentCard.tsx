@@ -47,7 +47,7 @@ export function ContactAgentCard({
       </div>
 
       <p className="mt-4 rounded-lg border border-gold-500/30 bg-gold-50 px-3 py-2 text-xs leading-5 text-forest-700 dark:border-gold-300/30 dark:bg-forest-800 dark:text-gold-100">
-        Demo contact number only — fictional information for website demonstration.
+        Dummy number for demonstration purposes only.
       </p>
       <a
         href={`tel:+${agent.phone.replace(/\D/g, "")}`}

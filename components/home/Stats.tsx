@@ -52,11 +52,8 @@ function StatItem({
   const count = useCountUp(value, start);
 
   return (
-      <div className="text-center">
-      <span className="inline-flex rounded-full border border-gold-300/30 bg-gold-300/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-gold-200">
-        Demo data
-      </span>
-      <p className="mt-3 font-display text-4xl font-semibold text-gold-300 sm:text-5xl">
+    <div className="text-center">
+      <p className="font-display text-4xl font-semibold text-gold-300 sm:text-5xl">
         {count.toLocaleString()}
         {suffix}
       </p>

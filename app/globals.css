@@ -42,25 +42,6 @@ html {
   background: #c99a48;
 }
 
-input:not([type="range"]),
-textarea,
-select {
-  border: 1px solid rgb(22 48 40 / 0.28);
-  border-radius: 0.75rem;
-}
-
-input:not([type="range"]):focus,
-textarea:focus,
-select:focus {
-  border-color: #b8862f;
-}
-
-.dark input:not([type="range"]),
-.dark textarea,
-.dark select {
-  border-color: rgb(255 255 255 / 0.15);
-}
-
 input[type="range"] {
   accent-color: #b8862f;
 }
