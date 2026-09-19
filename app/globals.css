@@ -87,7 +87,7 @@ body {
   input:not([type="range"]),
   textarea,
   select {
-    @apply border border-forest-800/20 dark:border-white/20;
+    @apply border border-forest-800/30 bg-white/70 dark:border-white/25 dark:bg-white/5;
   }
 
   .container-page {

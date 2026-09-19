@@ -99,6 +99,8 @@ export function Navbar() {
 
   const isActive = (section: SectionId) => {
     if (pathname.startsWith("/properties")) return section === "properties";
+    if (pathname.startsWith("/about")) return section === "about";
+    if (pathname.startsWith("/contact")) return section === "contact";
     if (pathname !== "/") return false;
     return activeSection === section;
   };

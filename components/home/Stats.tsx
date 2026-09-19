@@ -53,6 +53,9 @@ function StatItem({
 
   return (
     <div className="text-center">
+      <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-200/80">
+        Demonstration figure
+      </p>
       <p className="font-display text-4xl font-semibold text-gold-300 sm:text-5xl">
         {count.toLocaleString()}
         {suffix}

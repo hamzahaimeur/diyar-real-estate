@@ -10,7 +10,7 @@
     "bedrooms": 4,
     "bathrooms": 5,
     "area": 320,
-    "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80",
+    "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=80",
     "featured": true,
     "amenities": ["Pool", "Gym", "Parking", "Sea View", "Concierge", "Smart Home"]
   },
