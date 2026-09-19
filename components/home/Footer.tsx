@@ -19,6 +19,20 @@ export function Footer() {
     setEmail("");
   };
 
+  const isFooterLinkActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    if (href === "/properties") return pathname.startsWith("/properties");
+    if (href === "/login") return pathname === "/login";
+    if (href === "/privacy") return pathname === "/privacy";
+    if (href === "/terms") return pathname === "/terms";
+    return false;
+  };
+
+  const footerLinkClass = (href: string) =>
+    `px-2 py-1 transition duration-300 ease-in-out hover:text-gold-300 ${
+      isFooterLinkActive(href) ? "text-gold-300" : ""
+    }`;
+
   const onHashClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
     const hashIndex = href.indexOf("#");
     if (hashIndex === -1 || pathname !== "/") return;
@@ -48,19 +62,19 @@ export function Footer() {
           </h3>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <Link href="/" className="transition duration-300 ease-in-out hover:text-gold-300">
+              <Link href="/" className={footerLinkClass("/")} aria-current={isFooterLinkActive("/") ? "page" : undefined}>
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/properties" className="transition duration-300 ease-in-out hover:text-gold-300">
+              <Link href="/properties" className={footerLinkClass("/properties")} aria-current={isFooterLinkActive("/properties") ? "page" : undefined}>
                 Properties
               </Link>
             </li>
             <li>
               <Link
                 href="/#about"
-                className="transition duration-300 ease-in-out hover:text-gold-300"
+                className={footerLinkClass("/#about")}
                 onClick={(event) => onHashClick(event, "/#about")}
               >
                 About
@@ -69,7 +83,7 @@ export function Footer() {
             <li>
               <Link
                 href="/#contact"
-                className="transition duration-300 ease-in-out hover:text-gold-300"
+                className={footerLinkClass("/#contact")}
                 onClick={(event) => onHashClick(event, "/#contact")}
               >
                 Contact
@@ -87,9 +101,14 @@ export function Footer() {
               <MapPin size={16} className="mt-0.5 text-gold-400" />
               DIFC, Gate Avenue, Dubai, UAE
             </li>
-            <li className="flex items-center gap-2">
-              <Phone size={16} className="text-gold-400" />
-              +971 0 000 0000
+            <li className="flex flex-col items-start gap-2">
+              <span className="rounded-md border border-gold-400/30 bg-gold-500/10 px-2.5 py-1 text-[11px] font-medium leading-4 text-gold-200">
+                Demo number only — fictional information for website demonstration.
+              </span>
+              <span className="flex items-center gap-2">
+                <Phone size={16} className="text-gold-400" />
+                +971 0 000 0000
+              </span>
             </li>
             <li className="flex items-center gap-2">
               <Mail size={16} className="text-gold-400" />
@@ -149,7 +168,7 @@ export function Footer() {
 
       <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 px-2 py-7 text-center text-xs text-forest-300 sm:flex-row sm:px-0 sm:text-left">
         <span>© {new Date().getFullYear()} Diyar. All rights reserved.</span>
-        <div className="flex gap-2"><Link href="/privacy" className="px-2 py-1 hover:text-gold-300">Privacy</Link><Link href="/terms" className="px-2 py-1 hover:text-gold-300">Terms</Link><Link href="/login" className="px-2 py-1 hover:text-gold-300">Sign in</Link></div>
+        <div className="flex gap-2"><Link href="/privacy" className={footerLinkClass("/privacy")} aria-current={isFooterLinkActive("/privacy") ? "page" : undefined}>Privacy</Link><Link href="/terms" className={footerLinkClass("/terms")} aria-current={isFooterLinkActive("/terms") ? "page" : undefined}>Terms</Link><Link href="/login" className={footerLinkClass("/login")} aria-current={isFooterLinkActive("/login") ? "page" : undefined}>Sign in</Link></div>
       </div>
     </footer>
   );

@@ -70,7 +70,7 @@
     "bedrooms": 6,
     "bathrooms": 7,
     "area": 710,
-    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
+    "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80",
     "featured": true,
     "amenities": ["Pool", "Garden", "Parking", "Sea View", "Maid Room", "Smart Home"]
   },
