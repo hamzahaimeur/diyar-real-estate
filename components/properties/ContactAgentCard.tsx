@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
 import type { Agent, Property } from "@/types/property";
 import { formatPhone } from "@/lib/format";
@@ -35,8 +34,11 @@ export function ContactAgentCard({
         Contact agent
       </p>
       <div className="mt-4 flex items-center gap-3">
-        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full">
-          <Image src={agent.photo} alt={agent.name} fill className="object-cover" sizes="56px" />
+        <div
+          aria-hidden="true"
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gold-500 font-display text-xl text-forest-950"
+        >
+          {agent.name.charAt(0)}
         </div>
         <div>
           <p className="font-display text-lg text-forest-900 dark:text-cream">{agent.name}</p>

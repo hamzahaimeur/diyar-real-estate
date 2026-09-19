@@ -5,36 +5,32 @@ const allProperties = propertiesData as Property[];
 
 const AGENTS: Agent[] = [
   {
-    name: "Layla Al Hashimi",
+    name: "Hamza Al Noor",
     role: "Senior Property Consultant",
-    phone: "971501234401",
-    email: "layla@diyar.example",
-    photo:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
+    phone: "+000",
+    email: "hamza@example.invalid",
+    photo: "",
   },
   {
-    name: "Omar Nasser",
+    name: "Yousef Nasser",
     role: "Residential Specialist",
-    phone: "971502229180",
-    email: "omar@diyar.example",
-    photo:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80",
+    phone: "+000",
+    email: "yousef@example.invalid",
+    photo: "",
   },
   {
-    name: "Sara Al Mazrouei",
+    name: "Khalid Rahman",
     role: "Luxury Homes Advisor",
-    phone: "971504441902",
-    email: "sara@diyar.example",
-    photo:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80",
+    phone: "+000",
+    email: "khalid@example.invalid",
+    photo: "",
   },
   {
-    name: "James Whitfield",
+    name: "Omar Faris",
     role: "Commercial Broker",
-    phone: "971506778210",
-    email: "james@diyar.example",
-    photo:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80",
+    phone: "+000",
+    email: "omar@example.invalid",
+    photo: "",
   },
 ];
 
