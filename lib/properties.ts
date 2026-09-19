@@ -5,30 +5,30 @@ const allProperties = propertiesData as Property[];
 
 const AGENTS: Agent[] = [
   {
-    name: "Hamza Al Noor",
+    name: "Hamza",
     role: "Senior Property Consultant",
-    phone: "+000",
+    phone: "+971 0 000 0000",
     email: "hamza@example.invalid",
     photo: "",
   },
   {
-    name: "Yousef Nasser",
+    name: "Yusuf",
     role: "Residential Specialist",
-    phone: "+000",
+    phone: "+971 0 000 0000",
     email: "yousef@example.invalid",
     photo: "",
   },
   {
-    name: "Khalid Rahman",
+    name: "Khalid",
     role: "Luxury Homes Advisor",
-    phone: "+000",
+    phone: "+971 0 000 0000",
     email: "khalid@example.invalid",
     photo: "",
   },
   {
-    name: "Omar Faris",
+    name: "Omar",
     role: "Commercial Broker",
-    phone: "+000",
+    phone: "+971 0 000 0000",
     email: "omar@example.invalid",
     photo: "",
   },

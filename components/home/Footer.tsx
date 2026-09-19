@@ -87,9 +87,14 @@ export function Footer() {
               <MapPin size={16} className="mt-0.5 text-gold-400" />
               DIFC, Gate Avenue, Dubai, UAE
             </li>
-            <li className="flex items-center gap-2">
-              <Phone size={16} className="text-gold-400" />
-              +971 4 555 0190
+            <li className="flex flex-col items-start gap-1.5">
+              <span className="rounded-md border border-gold-400/30 bg-gold-400/10 px-2 py-1 text-[11px] leading-4 text-gold-200">
+                Dummy number for demonstration purposes only.
+              </span>
+              <span className="flex items-center gap-2">
+                <Phone size={16} className="text-gold-400" />
+                +971 0 000 0000
+              </span>
             </li>
             <li className="flex items-center gap-2">
               <Mail size={16} className="text-gold-400" />
@@ -147,9 +152,13 @@ export function Footer() {
         </FadeIn>
       </div>
 
-      <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 px-2 py-7 text-center text-xs text-forest-300 sm:flex-row sm:px-0 sm:text-left">
-        <span>© {new Date().getFullYear()} Diyar. All rights reserved.</span>
-        <div className="flex gap-4"><Link href="/privacy" className="hover:text-gold-300">Privacy</Link><Link href="/terms" className="hover:text-gold-300">Terms</Link><Link href="/login" className="hover:text-gold-300">Sign in</Link></div>
+      <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 px-5 py-7 text-center text-xs text-forest-300 sm:flex-row sm:px-8 sm:text-left">
+        <span className="px-2">© {new Date().getFullYear()} <span className="px-1">Diyar</span>. <span className="px-1">All</span> rights reserved.</span>
+        <div className="flex gap-1">
+          <Link href="/privacy" className="px-2 py-1 hover:text-gold-300">Privacy</Link>
+          <Link href="/terms" className="px-2 py-1 hover:text-gold-300">Terms</Link>
+          <Link href="/login" className="px-2 py-1 hover:text-gold-300">Sign in</Link>
+        </div>
       </div>
     </footer>
   );

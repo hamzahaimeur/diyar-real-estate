@@ -3,7 +3,6 @@
 import { FormEvent, useState } from "react";
 import { Mail, Phone } from "lucide-react";
 import type { Agent, Property } from "@/types/property";
-import { formatPhone } from "@/lib/format";
 
 export function ContactAgentCard({
   agent,
@@ -46,12 +45,15 @@ export function ContactAgentCard({
         </div>
       </div>
 
+      <p className="mt-4 rounded-lg border border-gold-500/30 bg-gold-500/10 px-3 py-2 text-xs leading-5 text-forest-700 dark:text-gold-100">
+        Dummy contact number for demonstration purposes only.
+      </p>
       <a
-        href={`tel:+${agent.phone.replace(/\D/g, "")}`}
+        href="tel:+9710000000"
         className="mt-4 flex items-center gap-2 text-sm font-medium text-forest-800 transition duration-300 ease-in-out hover:text-gold-600 dark:text-cream dark:hover:text-gold-300"
       >
         <Phone size={15} />
-        {formatPhone(agent.phone)}
+        +971 0 000 0000
       </a>
       <a
         href={`mailto:${agent.email}`}
