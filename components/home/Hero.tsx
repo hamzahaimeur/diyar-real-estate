@@ -21,10 +21,11 @@ export function Hero() {
           <h1 className="max-w-4xl font-display text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
             Find the property that feels like home
           </h1>
-          <p className="mt-5 max-w-2xl text-base text-forest-100/90 sm:text-lg">
-            Browse verified listings from trusted agents. Search apartments, villas,
-            offices, and land with Diyar — a calmer way to buy, sell, and invest.
-          </p>
+          <aside className="mx-auto mt-6 max-w-2xl rounded-xl border border-gold-300/45 bg-forest-950/70 px-5 py-4 text-sm leading-6 text-white shadow-lg backdrop-blur-sm sm:text-base">
+            <strong className="font-semibold text-gold-200">Demo project:</strong>{" "}
+            All properties, statistics, and agent profiles shown here are fictional and
+            created for showcase purposes only.
+          </aside>
         </FadeIn>
         <FadeIn className="mt-10 w-full max-w-5xl" delayMs={120}>
           <PropertySearch />
