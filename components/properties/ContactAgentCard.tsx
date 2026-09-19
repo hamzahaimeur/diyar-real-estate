@@ -26,7 +26,7 @@ export function ContactAgentCard({
   };
 
   const inputClass =
-    "h-11 w-full rounded-xl border border-forest-800/20 bg-cream shadow-sm px-3 text-sm text-forest-900 outline-none transition duration-300 ease-in-out focus:border-gold-500 dark:border-white/10 dark:bg-forest-800 dark:text-cream";
+    "h-11 w-full rounded-xl border border-forest-800/10 bg-cream px-3 text-sm text-forest-900 outline-none transition duration-300 ease-in-out focus:border-gold-500 dark:border-white/10 dark:bg-forest-800 dark:text-cream";
 
   return (
     <aside className="rounded-2xl border border-forest-800/10 bg-white p-6 shadow-card lg:sticky lg:top-24 dark:border-white/10 dark:bg-forest-900">
@@ -46,9 +46,6 @@ export function ContactAgentCard({
         </div>
       </div>
 
-      <p className="mt-4 rounded-lg border border-gold-500/30 bg-gold-50 px-3 py-2 text-xs leading-5 text-forest-700 dark:border-gold-300/30 dark:bg-forest-800 dark:text-gold-100">
-        Dummy number for demonstration purposes only.
-      </p>
       <a
         href={`tel:+${agent.phone.replace(/\D/g, "")}`}
         className="mt-4 flex items-center gap-2 text-sm font-medium text-forest-800 transition duration-300 ease-in-out hover:text-gold-600 dark:text-cream dark:hover:text-gold-300"
@@ -102,7 +99,7 @@ export function ContactAgentCard({
               rows={4}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full rounded-xl border border-forest-800/20 bg-cream shadow-sm px-3 py-2 text-sm text-forest-900 outline-none transition duration-300 ease-in-out focus:border-gold-500 dark:border-white/10 dark:bg-forest-800 dark:text-cream"
+              className="w-full rounded-xl border border-forest-800/10 bg-cream px-3 py-2 text-sm text-forest-900 outline-none transition duration-300 ease-in-out focus:border-gold-500 dark:border-white/10 dark:bg-forest-800 dark:text-cream"
             />
           </label>
           <button type="submit" className="gold-btn w-full">
