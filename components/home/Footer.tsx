@@ -89,7 +89,7 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <Phone size={16} className="text-gold-400" />
-              +971 4 555 0190
+              +971 0 000 0000
             </li>
             <li className="flex items-center gap-2">
               <Mail size={16} className="text-gold-400" />
@@ -135,7 +135,7 @@ export function Footer() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email"
-              className="h-11 rounded-xl border border-white/10 bg-forest-900 px-3 text-sm text-cream outline-none transition duration-300 ease-in-out focus:border-gold-400"
+              className="h-11 rounded-xl border border-white/20 bg-forest-900 shadow-sm px-3 text-sm text-cream outline-none transition duration-300 ease-in-out focus:border-gold-400"
             />
             <button type="submit" className="gold-btn">
               Subscribe
@@ -149,7 +149,7 @@ export function Footer() {
 
       <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 px-2 py-7 text-center text-xs text-forest-300 sm:flex-row sm:px-0 sm:text-left">
         <span>© {new Date().getFullYear()} Diyar. All rights reserved.</span>
-        <div className="flex gap-4"><Link href="/privacy" className="hover:text-gold-300">Privacy</Link><Link href="/terms" className="hover:text-gold-300">Terms</Link><Link href="/login" className="hover:text-gold-300">Sign in</Link></div>
+        <div className="flex gap-2"><Link href="/privacy" className="px-2 py-1 hover:text-gold-300">Privacy</Link><Link href="/terms" className="px-2 py-1 hover:text-gold-300">Terms</Link><Link href="/login" className="px-2 py-1 hover:text-gold-300">Sign in</Link></div>
       </div>
     </footer>
   );
