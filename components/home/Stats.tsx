@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { FadeIn } from "@/components/motion/FadeIn";
 
 const stats = [
-  { label: "Properties Listed", value: 2400, suffix: "+" },
-  { label: "Happy Clients", value: 1800, suffix: "+" },
-  { label: "Cities Covered", value: 12, suffix: "" },
-  { label: "Years of Experience", value: 15, suffix: "+" },
+  { label: "Sample Listings", value: 12, suffix: "" },
+  { label: "Property Types", value: 4, suffix: "" },
+  { label: "Emirates Featured", value: 5, suffix: "" },
+  { label: "Demo Data", value: 100, suffix: "%" },
 ];
 
 function easeInOut(progress: number) {
@@ -97,6 +97,10 @@ export function Stats() {
           <StatItem key={stat.label} {...stat} start={start} />
         ))}
       </FadeIn>
+      <p className="relative mt-8 text-center text-xs text-forest-200/70">
+        These figures describe the demo catalogue shown on this site, not a real company track
+        record.
+      </p>
     </section>
   );
 }

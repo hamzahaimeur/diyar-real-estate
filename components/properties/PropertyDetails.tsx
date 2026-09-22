@@ -1,3 +1,5 @@
+"use client";
+
 import { Bath, BedDouble, Maximize2, MapPin } from "lucide-react";
 import { AmenitiesGrid } from "@/components/properties/AmenitiesGrid";
 import { ContactAgentCard } from "@/components/properties/ContactAgentCard";
@@ -5,6 +7,8 @@ import { PropertyGallery } from "@/components/properties/PropertyGallery";
 import { PropertyMapPlaceholder } from "@/components/properties/PropertyMapPlaceholder";
 import { PropertyCard } from "@/components/home/PropertyCard";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { DemoNotice } from "@/components/ui/DemoNotice";
+import { SaveButton } from "@/components/ui/SaveButton";
 import { FadeIn } from "@/components/motion/FadeIn";
 import { formatPrice } from "@/lib/format";
 import type { Property, PropertyDetail } from "@/types/property";
@@ -63,9 +67,15 @@ export function PropertyDetails({
                 {property.location}
               </p>
             </div>
-            <p className="font-display text-3xl text-gold-600 dark:text-gold-400">
-              {formatPrice(property.price, property.currency)}
-            </p>
+            <div className="flex items-center gap-3">
+              <p className="font-display text-3xl text-gold-600 dark:text-gold-400">
+                {formatPrice(property.price, property.currency)}
+              </p>
+              <SaveButton propertyId={property.id} />
+            </div>
+          </div>
+          <div className="mt-5">
+            <DemoNotice className="mx-0 justify-start text-left" />
           </div>
         </FadeIn>
       </section>

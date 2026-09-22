@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Bath, BedDouble, MapPin, Maximize2 } from "lucide-react";
+import { Bath, BedDouble, Heart, MapPin, Maximize2 } from "lucide-react";
 import { formatPrice } from "@/lib/format";
+import { useFavorites } from "@/lib/favorites";
 import type { Property } from "@/types/property";
 import type { ViewMode } from "@/lib/property-filters";
 
@@ -14,10 +17,12 @@ export function PropertyCard({
 }) {
   const isList = layout === "list";
   const href = `/properties/${property.id}`;
+  const { isFavorite, toggleFavorite } = useFavorites();
+  const saved = isFavorite(property.id);
 
   return (
     <article
-      className={`group overflow-hidden rounded-2xl border border-forest-800/10 bg-white shadow-card transition duration-300 ease-in-out hover:-translate-y-1.5 hover:shadow-card-hover dark:border-white/10 dark:bg-forest-900 ${
+      className={`group relative overflow-hidden rounded-2xl border border-forest-800/10 bg-white shadow-card transition duration-300 ease-in-out hover:-translate-y-1.5 hover:shadow-card-hover dark:border-white/10 dark:bg-forest-900 ${
         isList ? "md:flex" : "flex flex-col"
       }`}
     >
@@ -42,6 +47,22 @@ export function PropertyCard({
           {property.type}
         </span>
       </Link>
+
+      <button
+        type="button"
+        onClick={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          toggleFavorite(property.id);
+        }}
+        aria-pressed={saved}
+        aria-label={saved ? "Remove from saved properties" : "Save this property"}
+        className={`absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full backdrop-blur transition duration-300 ease-in-out hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold-500 ${
+          saved ? "bg-gold-500 text-forest-950" : "bg-forest-950/60 text-white hover:bg-forest-950/80"
+        }`}
+      >
+        <Heart size={16} fill={saved ? "currentColor" : "none"} />
+      </button>
 
       <div className="flex flex-1 flex-col space-y-3 p-5">
         <p className="text-lg font-semibold text-gold-600 dark:text-gold-400">

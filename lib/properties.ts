@@ -5,44 +5,36 @@ const allProperties = propertiesData as Property[];
 
 const AGENTS: Agent[] = [
   {
-    name: "Layla Al Hashimi",
+    name: "Hamza",
     role: "Senior Property Consultant",
-    phone: "971501234401",
-    email: "layla@diyar.example",
-    photo:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
+    phone: "+971 00 000 0000",
+    email: "hamza@diyar.example",
   },
   {
-    name: "Omar Nasser",
+    name: "Omar",
     role: "Residential Specialist",
-    phone: "971502229180",
+    phone: "+971 00 000 0000",
     email: "omar@diyar.example",
-    photo:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80",
   },
   {
-    name: "Sara Al Mazrouei",
+    name: "Khalid",
     role: "Luxury Homes Advisor",
-    phone: "971504441902",
-    email: "sara@diyar.example",
-    photo:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80",
+    phone: "+971 00 000 0000",
+    email: "khalid@diyar.example",
   },
   {
-    name: "James Whitfield",
+    name: "Yusuf",
     role: "Commercial Broker",
-    phone: "971506778210",
-    email: "james@diyar.example",
-    photo:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80",
+    phone: "+971 00 000 0000",
+    email: "yusuf@diyar.example",
   },
 ];
 
 const GALLERY_EXTRAS = [
-  "https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=80",
+  "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=1600&q=80",
+  "https://images.unsplash.com/photo-1616137356540-b13b2a04a507?auto=format&fit=crop&w=1600&q=80",
   "https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdbc?auto=format&fit=crop&w=1600&q=80",
+  "https://images.unsplash.com/photo-1682888813734-b1b0a4f79385?auto=format&fit=crop&w=1600&q=80",
 ];
 
 const DESCRIPTIONS: Record<string, string> = {
@@ -73,10 +65,16 @@ const DESCRIPTIONS: Record<string, string> = {
 };
 
 function galleryFor(property: Property, index: number) {
+  const isLocalPlaceholder = !property.image.startsWith("http");
+  const cover = isLocalPlaceholder
+    ? GALLERY_EXTRAS[index % GALLERY_EXTRAS.length]
+    : property.image;
+
   const extras = GALLERY_EXTRAS.map(
-    (_, offset) => GALLERY_EXTRAS[(index + offset) % GALLERY_EXTRAS.length],
-  ).filter((url) => url !== property.image);
-  return [property.image, ...extras].slice(0, 4);
+    (_, offset) => GALLERY_EXTRAS[(index + offset + 1) % GALLERY_EXTRAS.length],
+  ).filter((url) => url !== cover);
+
+  return [cover, ...extras].slice(0, 4);
 }
 
 export function getAllProperties(): Property[] {

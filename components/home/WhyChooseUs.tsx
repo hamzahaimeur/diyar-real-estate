@@ -5,32 +5,32 @@ const features = [
   {
     title: "Verified Listings",
     description:
-      "Every property is reviewed for accuracy so you can browse with confidence, not guesswork.",
+      "Every listing follows the same accuracy checklist, so browsing feels consistent from one property to the next.",
     icon: BadgeCheck,
   },
   {
-    title: "Trusted Agents",
+    title: "Dedicated Agents",
     description:
-      "Work with licensed professionals who know the market and represent your interests clearly.",
+      "Each property is paired with a named point of contact who can answer questions about it directly.",
     icon: ShieldCheck,
   },
   {
-    title: "Best Prices",
+    title: "Clear Pricing",
     description:
-      "Transparent pricing and comparable listings help you negotiate from a stronger position.",
+      "Prices are shown upfront with no hidden steps, so comparing listings stays straightforward.",
     icon: Tags,
   },
   {
-    title: "24/7 Support",
+    title: "Responsive Support",
     description:
-      "Our team is available around the clock to answer questions and guide your next step.",
+      "The contact form and agent messages are designed to route questions quickly to the right person.",
     icon: Headphones,
   },
 ];
 
 export function WhyChooseUs() {
   return (
-    <section id="about" className="scroll-mt-24 bg-white py-20 dark:bg-forest-900/40">
+    <section id="why-us" className="scroll-mt-24 bg-white py-20 dark:bg-forest-900/40">
       <div className="container-page">
         <FadeIn className="mx-auto mb-12 max-w-2xl text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-gold-600">

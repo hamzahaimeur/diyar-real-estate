@@ -1,14 +1,11 @@
 "use client";
 
-import { FormEvent, MouseEvent, useState } from "react";
+import { FormEvent, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { FadeIn } from "@/components/motion/FadeIn";
-import { scrollToHash } from "@/lib/motion";
 
 export function Footer() {
-  const pathname = usePathname();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
@@ -19,15 +16,8 @@ export function Footer() {
     setEmail("");
   };
 
-  const onHashClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
-    const hashIndex = href.indexOf("#");
-    if (hashIndex === -1 || pathname !== "/") return;
-    event.preventDefault();
-    scrollToHash(href.slice(hashIndex));
-  };
-
   return (
-    <footer id="contact" className="scroll-mt-24 bg-forest-950 text-forest-100">
+    <footer className="bg-forest-950 text-forest-100">
       <div className="container-page grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
         <FadeIn>
           <div className="flex items-center gap-2">
@@ -58,21 +48,18 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link
-                href="/#about"
-                className="transition duration-300 ease-in-out hover:text-gold-300"
-                onClick={(event) => onHashClick(event, "/#about")}
-              >
+              <Link href="/about" className="transition duration-300 ease-in-out hover:text-gold-300">
                 About
               </Link>
             </li>
             <li>
-              <Link
-                href="/#contact"
-                className="transition duration-300 ease-in-out hover:text-gold-300"
-                onClick={(event) => onHashClick(event, "/#contact")}
-              >
+              <Link href="/contact" className="transition duration-300 ease-in-out hover:text-gold-300">
                 Contact
+              </Link>
+            </li>
+            <li>
+              <Link href="/favorites" className="transition duration-300 ease-in-out hover:text-gold-300">
+                Saved Properties
               </Link>
             </li>
           </ul>
@@ -89,7 +76,7 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <Phone size={16} className="text-gold-400" />
-              +971 4 555 0190
+              +971 00 000 0000
             </li>
             <li className="flex items-center gap-2">
               <Mail size={16} className="text-gold-400" />
@@ -148,7 +135,15 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10 py-5 text-center text-xs text-forest-300">
-        © {new Date().getFullYear()} Diyar. All rights reserved.
+        <p>© {new Date().getFullYear()} Diyar. Demo project — not a real company.</p>
+        <div className="mt-2 flex items-center justify-center gap-4">
+          <Link href="/privacy" className="transition duration-300 ease-in-out hover:text-gold-300">
+            Privacy Policy
+          </Link>
+          <Link href="/terms" className="transition duration-300 ease-in-out hover:text-gold-300">
+            Terms of Service
+          </Link>
+        </div>
       </div>
     </footer>
   );

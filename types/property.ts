@@ -5,7 +5,6 @@ export interface Agent {
   role: string;
   phone: string;
   email: string;
-  photo: string;
 }
 
 export interface Property {

@@ -40,7 +40,7 @@
     "bedrooms": 0,
     "bathrooms": 2,
     "area": 185,
-    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80",
+    "image": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1600&q=80",
     "featured": true,
     "amenities": ["Parking", "Gym", "Concierge", "Sea View"]
   },
@@ -130,7 +130,7 @@
     "bedrooms": 1,
     "bathrooms": 1,
     "area": 58,
-    "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1600&q=80",
+    "image": "https://images.unsplash.com/photo-1662059361834-d361807d63e7?auto=format&fit=crop&w=1600&q=80",
     "featured": false,
     "amenities": ["Gym", "Parking", "Concierge", "Smart Home"]
   },
@@ -145,7 +145,7 @@
     "bedrooms": 0,
     "bathrooms": 2,
     "area": 142,
-    "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=80",
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80",
     "featured": false,
     "amenities": ["Parking", "Gym", "Concierge"]
   },
