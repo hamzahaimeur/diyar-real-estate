@@ -17,6 +17,8 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
 });
 
+const previewImage = `${siteConfig.url}/preview.png`;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -37,9 +39,9 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/preview.png",
-        width: 1200,
-        height: 630,
+        url: previewImage,
+        width: 1366,
+        height: 641,
         alt: siteConfig.title,
       },
     ],
@@ -48,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ["/preview.png"],
+    images: [previewImage],
   },
 };
 
