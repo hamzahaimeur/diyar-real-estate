@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { DM_Sans, Playfair_Display } from "next/font/google";
 import { Footer } from "@/components/home/Footer";
 import { Navbar } from "@/components/home/Navbar";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -17,22 +18,38 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://diyar.example"),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Diyar | Find Your Dream Property",
-    template: "%s | Diyar",
+    default: siteConfig.title,
+    template: siteConfig.titleTemplate,
   },
-  description:
-    "Diyar is a professional real estate listing platform helping you discover verified homes, villas, offices, and land across the region.",
-  keywords: ["real estate", "UAE property", "Dubai homes", "villas", "apartments", "Diyar"],
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  keywords: [...siteConfig.keywords],
+  category: "real estate",
+  formatDetection: { telephone: false, email: false, address: false },
+  robots: { index: true, follow: true },
   openGraph: {
     type: "website",
-    locale: "en_AE",
-    siteName: "Diyar",
-    title: "Diyar | Find Your Dream Property",
-    description:
-      "Discover verified apartments, villas, offices, and land across the UAE.",
+    locale: siteConfig.locale,
+    siteName: `${siteConfig.name} (Demo)`,
+    title: siteConfig.title,
+    description: siteConfig.description,
   },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f6f1e8" },
+    { media: "(prefers-color-scheme: dark)", color: "#081411" },
+  ],
 };
 
 export default function RootLayout({

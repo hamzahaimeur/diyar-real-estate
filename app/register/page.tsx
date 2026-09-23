@@ -3,7 +3,7 @@ import { RegisterForm } from "@/components/auth/RegisterForm";
 
 export const metadata: Metadata = {
   title: "Create account",
-  description: "Create a demo account on the Diyar platform.",
+  description: "Demo registration page of the Diyar real estate website. No real account is created.",
 };
 
 export default function RegisterPage() {

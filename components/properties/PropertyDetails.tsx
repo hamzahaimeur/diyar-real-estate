@@ -20,33 +20,8 @@ export function PropertyDetails({
   property: PropertyDetail;
   similar: Property[];
 }) {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateListing",
-    name: property.title,
-    description: property.description,
-    image: property.images,
-    url: `/properties/${property.id}`,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: property.city,
-      addressCountry: "AE",
-      streetAddress: property.location,
-    },
-    offers: {
-      "@type": "Offer",
-      price: property.price,
-      priceCurrency: property.currency,
-    },
-  };
-
   return (
     <div className="pb-20">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       <section className="border-b border-forest-800/10 bg-white py-10 dark:border-white/10 dark:bg-forest-900/40">
         <FadeIn className="container-page">
           <Breadcrumbs

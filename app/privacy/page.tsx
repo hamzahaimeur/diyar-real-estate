@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/motion/FadeIn";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy policy for the Diyar demo listing platform.",
+  description: "Placeholder privacy policy for the Diyar demo real estate website.",
 };
 
 export default function PrivacyPage() {
@@ -25,7 +25,7 @@ export default function PrivacyPage() {
         <p>
           This page is a placeholder Privacy Policy included so that every link across the site
           leads somewhere real. Diyar is a demo real estate listing platform built as a
-          portfolio project — it does not operate as a real business and does not collect,
+          demo project — it does not operate as a real business and does not collect,
           store, or share personal data on any server.
         </p>
         <div>

@@ -3,7 +3,7 @@ import { FavoritesPageContent } from "@/components/favorites/FavoritesPageConten
 
 export const metadata: Metadata = {
   title: "Saved Properties",
-  description: "Properties you have saved while browsing the Diyar demo listing platform.",
+  description: "Properties you saved while browsing the Diyar demo website, stored only in your browser. Sample data.",
 };
 
 export default function FavoritesPage() {

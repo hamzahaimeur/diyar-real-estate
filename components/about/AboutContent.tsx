@@ -52,20 +52,19 @@ export function AboutContent() {
           <h2 className="font-display text-2xl text-forest-900 dark:text-cream">Our story</h2>
           <div className="mt-4 space-y-4 text-sm leading-7 text-forest-700 dark:text-forest-200">
             <p>
-              Diyar started as a front-end project: a real estate listing platform designed and
-              built end to end, from search and filtering to individual property pages, with the
-              goal of matching the clarity and polish of established listing sites.
+              Diyar is a front-end real estate listing website, designed and built end to end —
+              from search and filtering to individual property pages — with a focus on clarity,
+              polish, and a fully responsive experience.
             </p>
             <p>
               Every property, agent, and figure shown across the site is a sample used to
-              demonstrate the interface — the search flow, filters, saved properties, and
-              contact form all work exactly as they would on a live platform, using
-              placeholder content instead of a real property catalogue.
+              demonstrate the interface. Search, filters, and saved properties work as they
+              would on a live platform, while the contact and account forms are front-end only
+              and do not send data anywhere.
             </p>
             <p>
-              The project is part of a small portfolio of web platforms, alongside a
-              restaurant site, an admin dashboard, and an e-commerce store, each built to explore
-              a different kind of product experience.
+              The source code is a ready-to-customise template: replace the sample data, branding,
+              and content to launch your own real estate listing website.
             </p>
           </div>
         </FadeIn>

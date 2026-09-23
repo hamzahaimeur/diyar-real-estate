@@ -3,7 +3,7 @@ import { ContactContent } from "@/components/contact/ContactContent";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch about the Diyar demo listing platform.",
+  description: "Contact page of the Diyar demo real estate website. The form is a demonstration and does not send messages.",
 };
 
 export default function ContactPage() {

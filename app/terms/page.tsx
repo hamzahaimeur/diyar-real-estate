@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/motion/FadeIn";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "Terms of service for the Diyar demo listing platform.",
+  description: "Placeholder terms of service for the Diyar demo real estate website.",
 };
 
 export default function TermsPage() {
@@ -24,7 +24,7 @@ export default function TermsPage() {
       <FadeIn className="container-page mt-10 max-w-3xl space-y-6 text-sm leading-7 text-forest-700 dark:text-forest-200">
         <p>
           These terms are placeholder content so that every link on the site leads somewhere
-          real. Diyar is a portfolio demo, not a live marketplace, so no purchase, rental, or
+          real. Diyar is a demo website, not a live marketplace, so no purchase, rental, or
           agency agreement can be made through this site.
         </p>
         <div>

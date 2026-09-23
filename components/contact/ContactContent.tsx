@@ -15,7 +15,7 @@ const faqs = [
   {
     question: "Can I reuse this project?",
     answer:
-      "This is a personal portfolio piece. Reach out through the form if you'd like to talk about the build.",
+      "Diyar is a ready-to-customise template. Replace the sample data, branding and content to launch your own listing website.",
   },
   {
     question: "Does the contact form actually send an email?",
@@ -56,10 +56,10 @@ export function ContactContent() {
       <section className="border-b border-forest-800/10 bg-white py-10 dark:border-white/10 dark:bg-forest-900/40">
         <FadeIn className="container-page">
           <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "Contact" }]} />
-          <h1 className="section-heading mt-2">Let's talk</h1>
+          <h1 className="section-heading mt-2">Let&apos;s talk</h1>
           <p className="section-sub">
             Questions about a listing, the platform, or the project itself — send a message and
-            you'll see a confirmation state below.
+            you&apos;ll see a confirmation state below.
           </p>
           <div className="mt-5">
             <DemoNotice className="mx-0 justify-start text-left" />

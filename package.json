@@ -1,12 +1,17 @@
 {
   "name": "diyar",
   "version": "0.1.0",
+  "description": "Real estate listing website template built with Next.js 14, TypeScript and Tailwind CSS (demo with sample data).",
   "private": true,
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "caniuse-lite": "^1.0.30001810",

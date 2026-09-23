@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllProperties } from "@/lib/properties";
-
-const BASE_URL = "https://diyar-real-estate.vercel.app";
+import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -15,12 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/privacy",
     "/terms",
   ].map((path) => ({
-    url: `${BASE_URL}${path}`,
+    url: `${siteConfig.url}${path}`,
     lastModified: new Date(),
   }));
 
   const propertyRoutes = getAllProperties().map((property) => ({
-    url: `${BASE_URL}/properties/${property.id}`,
+    url: `${siteConfig.url}/properties/${property.id}`,
     lastModified: new Date(),
   }));
 

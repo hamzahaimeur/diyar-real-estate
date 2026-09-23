@@ -21,7 +21,7 @@ export function FavoritesPageContent() {
           <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: "Saved Properties" }]} />
           <h1 className="section-heading mt-2">Saved Properties</h1>
           <p className="section-sub">
-            Properties you have saved on this device, using your browser's local storage.
+            Properties you have saved on this device, using your browser&apos;s local storage.
           </p>
           <div className="mt-5">
             <DemoNotice className="mx-0 justify-start text-left" />

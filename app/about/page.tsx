@@ -3,7 +3,7 @@ import { AboutContent } from "@/components/about/AboutContent";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "About the Diyar demo real estate listing platform, built as a portfolio project.",
+  description: "About the Diyar demo real estate listing website. All content and data shown are samples for demonstration only.",
 };
 
 export default function AboutPage() {
