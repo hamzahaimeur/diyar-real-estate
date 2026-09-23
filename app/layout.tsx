@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
 });
 
-const previewImage = `${siteConfig.url}/preview.png`;
+const previewImage = new URL("/preview.png", siteConfig.url).toString();
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
