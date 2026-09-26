@@ -6,20 +6,17 @@
 
 function resolveSiteUrl(): string {
   const explicit = process.env.NEXT_PUBLIC_SITE_URL;
-  const isLocalhost = explicit?.includes("localhost") || explicit?.includes("127.0.0.1");
+  if (explicit) return explicit.replace(/\/+$/, "");
 
-  // Never use a localhost URL for production metadata.
-  if (explicit && !(process.env.VERCEL_ENV && isLocalhost)) {
-    return explicit.replace(/\/+$/, "");
-  }
-
-  // Vercel exposes the production domain automatically at build time.
-  const vercelProductionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
-  if (vercelProductionUrl) return `https://${vercelProductionUrl}`;
-
-  // Fallback for a Vercel deployment/preview.
+  // Set automatically by Vercel on every deployment (preview and production),
+  // without needing any extra project setting enabled.
   const vercelUrl = process.env.VERCEL_URL;
   if (vercelUrl) return `https://${vercelUrl}`;
+
+  // Only present when "Automatically expose System Environment Variables" is
+  // turned on for the project — kept as a secondary check just in case.
+  const vercelProductionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  if (vercelProductionUrl) return `https://${vercelProductionUrl}`;
 
   return "http://localhost:3000";
 }
